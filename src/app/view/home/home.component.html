@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<div class="container mt-3">
+  <form class="d-flex justify-content-start" [formGroup]="formRestaurante">
+    <button type="button" class="btn btn-primary ms-5" (click)="editarRestaurante()" >Atualizar</button>
+    <button type="button" class="btn ms-5" (click)="adicionarRestaurantes()" >
+      <fa-icon [icon]="faPlus" ></fa-icon>
+    </button>
+    <input type="text" id="nomeRestaurantes" formControlName="nomeRestaurante">
+  </form>        
+  <table class="table table-striped">
+    <thead class="text-center">
+      <tr>
+        <th>ID</th>
+        <th >Nome</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <tr  *ngFor="let restaurante of listaRestaurantes">
+        <td >{{restaurante.id}}</td>
+        <td >{{restaurante.nome}}</td>
+        <td>
+          <button class="btn" (click)="deletarRestaurantes(restaurante.id)">
+            <fa-icon [icon]="faTrash" size="2x"></fa-icon>
+          </button>
+          <button class="btn" (click)="buscaRestauranteID(restaurante.id)">
+            <fa-icon [icon]="faPenSquare" size="2x" ></fa-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
