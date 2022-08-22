@@ -1,1 +1,22 @@
 @import "bootstrap";
+
+
+.icon {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  &-trash {
+    background-image: url("./svg/trash.svg");
+  }
+  &-add{
+    background-image: url("./svg/add.svg");
+  }
+  &-edit{
+    background-image: url("./svg/edit.svg");
+  }
+}
+
+.botao-default {
+  width: 2rem;
+  height: 2rem;
+}

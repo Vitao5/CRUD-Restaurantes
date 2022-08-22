@@ -2,19 +2,18 @@
 <div class="container mt-5">
   <button
     type="button"
-    class="btn border-primary mt-4"
+    class="btn mt-4 icon icon-add botao-default"
     data-bs-toggle="modal"
     data-bs-target="#modalEditarRestaurante"
     data-bs-whatever="@mdo"
   >
-    <fa-icon [icon]="faPlus"></fa-icon>
   </button>
   <table class="table table-striped">
     <thead class="text-center">
       <tr>
         <th>ID</th>
         <th>Nome</th>
-        <th>Ação</th>
+        <th>Ações</th>
       </tr>
     </thead>
     <tbody class="text-center">
@@ -22,17 +21,15 @@
         <td>{{ restaurante.id }}</td>
         <td>{{ restaurante.nome }}</td>
         <td>
-          <button class="btn" (click)="deletarRestaurantes(restaurante.id)">
-            <fa-icon [icon]="faTrash" size="2x"></fa-icon>
+          <button class="btn icon icon-trash botao-default" (click)="deletarRestaurantes(restaurante.id)">
           </button>
           <button
-            class="btn"
+            class="btn icon icon-edit botao-default ms-3"
             (click)="buscaRestauranteID(restaurante.id)"
             data-bs-toggle="modal"
             data-bs-target="#modalAtualizarRestaurante"
             data-bs-whatever="@mdo"
-          >
-            <fa-icon [icon]="faPenSquare" size="2x"></fa-icon>
+          > 
           </button>
         </td>
       </tr>

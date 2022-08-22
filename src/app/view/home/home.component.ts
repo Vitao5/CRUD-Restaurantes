@@ -12,15 +12,11 @@ import { NotificationService } from 'src/app/services/notification.service';
 export class HomeComponent implements OnInit {
   listaRestaurantes: any = [];
   nomeRestaurante: any = [];
-  faTrash = faTrash;
-  faPenSquare = faPenSquare;
-  faPlus = faPlus
   formRestaurante: FormGroup;
   restauranteID: number = 0;
   constructor(
     private restauranteSerice: RestauranteService,
     private form: FormBuilder,
-    private toast: NgToastService,
     private notificationService: NotificationService
   ) {}
 
