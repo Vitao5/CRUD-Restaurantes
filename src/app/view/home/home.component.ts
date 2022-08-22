@@ -1,9 +1,8 @@
 import { RestauranteService } from './../../services/restaurante.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { faTrash, faPenSquare, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -20,13 +19,14 @@ export class HomeComponent implements OnInit {
   constructor(
     private restauranteSerice: RestauranteService,
     private form: FormBuilder,
-    private toast: NgToastService
+    private toast: NgToastService,
   ) {}
 
   ngOnInit() {
     this.listarRestaurantes();
     this.formRestaurante = this.form.group({
       nomeRestaurante: ['', Validators.required],
+      novoNomeRestaurante:['', Validators.required]
     });
   }
   async listarRestaurantes() {
@@ -36,9 +36,10 @@ export class HomeComponent implements OnInit {
         this.listaRestaurantes = res;
       })
       .catch(() => {
+        
         this.toast.error({
-          detail: 'ERRO',
-          summary: 'Algo inesperado aconteceu!',
+          detail: 'Erro',
+          summary: 'Não foi possível listar os restaurantes',
           sticky: true,
         });
       });
@@ -60,6 +61,7 @@ export class HomeComponent implements OnInit {
       await this.restauranteSerice
         .addRestaurantes(inBody)
         .then(() => {
+          this.formRestaurante.get('nomeRestaurante')?.setValue('')
           this.toast.success({
             detail: 'Sucesso',
             summary: 'Restaurante adicionado com êxito',
@@ -69,9 +71,9 @@ export class HomeComponent implements OnInit {
         })
         .catch(() => {
           this.toast.error({
-            detail: 'ERRO',
-            summary: 'Algo inesperado aconteceu!',
-            sticky: true,
+          detail: 'Erro',
+          summary: 'Não foi possível adicionar um restaurante',
+          sticky: true,
           });
         });
     }
@@ -96,14 +98,14 @@ export class HomeComponent implements OnInit {
       .then((data) => {
         this.nomeRestaurante = data;
         this.formRestaurante
-          .get('nomeRestaurante')
+          .get('novoNomeRestaurante')
           ?.setValue(this.nomeRestaurante.nome);
       })
       .catch();
   }
   async editarRestaurante() {
     const inBody = {
-      nome: this.formRestaurante.get('nomeRestaurante')?.value,
+      nome: this.formRestaurante.get('novoNomeRestaurante')?.value,
       id: this.restauranteID,
     };
     this.restauranteSerice
@@ -118,8 +120,8 @@ export class HomeComponent implements OnInit {
       })
       .catch(() => {
         this.toast.error({
-          detail: 'ERRO',
-          summary: 'Algo inesperado aconteceu!',
+          detail: 'Erro',
+          summary: 'Não foi possível alterar os dados',
           sticky: true,
         });
       });

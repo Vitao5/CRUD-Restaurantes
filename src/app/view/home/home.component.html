@@ -1,33 +1,144 @@
 <app-navbar></app-navbar>
-<div class="container mt-3">
-  <form class="d-flex justify-content-start" [formGroup]="formRestaurante">
-    <button type="button" class="btn btn-primary ms-5" (click)="editarRestaurante()" >Atualizar</button>
-    <button type="button" class="btn ms-5" (click)="adicionarRestaurantes()" >
-      <fa-icon [icon]="faPlus" ></fa-icon>
-    </button>
-    <input type="text" id="nomeRestaurantes" formControlName="nomeRestaurante">
-  </form>        
+<div class="container mt-5">
+  <button
+    type="button"
+    class="btn border-primary mt-4"
+    data-bs-toggle="modal"
+    data-bs-target="#modalEditarRestaurante"
+    data-bs-whatever="@mdo"
+  >
+    <fa-icon [icon]="faPlus"></fa-icon>
+  </button>
   <table class="table table-striped">
     <thead class="text-center">
       <tr>
         <th>ID</th>
-        <th >Nome</th>
+        <th>Nome</th>
         <th>Ação</th>
       </tr>
     </thead>
     <tbody class="text-center">
-      <tr  *ngFor="let restaurante of listaRestaurantes">
-        <td >{{restaurante.id}}</td>
-        <td >{{restaurante.nome}}</td>
+      <tr *ngFor="let restaurante of listaRestaurantes">
+        <td>{{ restaurante.id }}</td>
+        <td>{{ restaurante.nome }}</td>
         <td>
           <button class="btn" (click)="deletarRestaurantes(restaurante.id)">
             <fa-icon [icon]="faTrash" size="2x"></fa-icon>
           </button>
-          <button class="btn" (click)="buscaRestauranteID(restaurante.id)">
-            <fa-icon [icon]="faPenSquare" size="2x" ></fa-icon>
+          <button
+            class="btn"
+            (click)="buscaRestauranteID(restaurante.id)"
+            data-bs-toggle="modal"
+            data-bs-target="#modalAtualizarRestaurante"
+            data-bs-whatever="@mdo"
+          >
+            <fa-icon [icon]="faPenSquare" size="2x"></fa-icon>
           </button>
         </td>
       </tr>
     </tbody>
   </table>
+</div>
+
+<div
+  class="modal fade"
+  id="modalEditarRestaurante"
+  tabindex="-1"
+  aria-labelledby="modalEditarRestaurante"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          Adicionar restaurante
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formRestaurante">
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label"
+              >Nome do restaurante:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="recipient-name"
+              formControlName="nomeRestaurante"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Fechar
+        </button>
+        <button
+          type="button"
+          class="btn btn-dark"
+          (click)="adicionarRestaurantes()"
+        >
+          Enviar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="modalAtualizarRestaurante"
+  tabindex="-1"
+  aria-labelledby="modalAtualizarRestaurante"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalAtualizarRestaurante">
+          Atualizar restaurante
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formRestaurante">
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label"
+              >Nome do restaurante:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="recipient-name"
+              formControlName="novoNomeRestaurante"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Fechar
+        </button>
+        <button
+          type="button"
+          class="btn btn-dark"
+          (click)="editarRestaurante()"
+          data-bs-dismiss="modal"
+        >
+          Atualizar
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,3 +1,4 @@
+
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -7,10 +8,10 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ],
   declarations: [
-    NavbarComponent
+    NavbarComponent,
   ],
   exports:[
-    NavbarComponent
+    NavbarComponent,
   ]
 })
 export class ComponentsModule { }

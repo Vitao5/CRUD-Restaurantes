@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: NavRouters.PAGE.HOME,
     component: HomeComponent
+  },
+  {
+    path: '',
+    component: HomeComponent
   }
 ]
 
