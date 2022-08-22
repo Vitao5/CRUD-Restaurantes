@@ -1,14 +1,11 @@
 import { RestauranteService } from './../../services/restaurante.service';
-import { Component, OnInit} from '@angular/core';
-import { faTrash, faPenSquare, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NgToastService } from 'ng-angular-popup';
 import { NotificationService } from 'src/app/services/notification.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
 })
-
 export class HomeComponent implements OnInit {
   listaRestaurantes: any = [];
   nomeRestaurante: any = [];
@@ -24,7 +21,7 @@ export class HomeComponent implements OnInit {
     this.listarRestaurantes();
     this.formRestaurante = this.form.group({
       nomeRestaurante: ['', Validators.required],
-      novoNomeRestaurante:['', Validators.required]
+      novoNomeRestaurante: ['', Validators.required],
     });
   }
   async listarRestaurantes() {
@@ -34,14 +31,21 @@ export class HomeComponent implements OnInit {
         this.listaRestaurantes = res;
       })
       .catch(() => {
-        this.notificationService.erro('Erro', 'Não foi possível listar os restaurantes')   
+        this.notificationService.erro(
+          'Erro',
+          'Não foi possível listar os restaurantes'
+        );
       });
   }
 
   async adicionarRestaurantes() {
-
-    if (this.formRestaurante.get('nomeRestaurante')?.value == undefined) {
-      this.notificationService.aviso('Aviso', 'Favor preencha o campo para continuar')
+    if (
+      this.formRestaurante.get('nomeRestaurante')?.value == (undefined || '')
+    ) {
+      this.notificationService.aviso(
+        'Aviso',
+        'Favor preencha o campo para continuar'
+      );
       this.formRestaurante.get('nomeRestaurante')?.markAsTouched();
     } else {
       const inBody = {
@@ -50,15 +54,20 @@ export class HomeComponent implements OnInit {
       await this.restauranteSerice
         .addRestaurantes(inBody)
         .then(() => {
-          this.formRestaurante.get('nomeRestaurante')?.setValue('')
-          this.notificationService.sucesso('Sucesso', 'Restaurante adicionado com êxito')
+          this.formRestaurante.get('nomeRestaurante')?.setValue('');
+          this.notificationService.sucesso(
+            'Sucesso',
+            'Restaurante adicionado com êxito'
+          );
           this.listarRestaurantes();
         })
         .catch(() => {
-          this.notificationService.erro('Erro', 'Não foi possível adicionar um restaurante')
+          this.notificationService.erro(
+            'Erro',
+            'Não foi possível adicionar um restaurante'
+          );
         });
     }
-    
   }
   async deletarRestaurantes(idRestaurante: number) {
     const inBody = {
@@ -92,11 +101,17 @@ export class HomeComponent implements OnInit {
     this.restauranteSerice
       .editarRestaurante(inBody)
       .then(() => {
-        this.notificationService.sucesso('Sucesso', 'Nome alterado com sucesso!')
+        this.notificationService.sucesso(
+          'Sucesso',
+          'Nome alterado com sucesso!'
+        );
         this.listarRestaurantes();
       })
       .catch(() => {
-        this.notificationService.erro( 'Erro', 'Não foi possível alterar os dados')
+        this.notificationService.erro(
+          'Erro',
+          'Não foi possível alterar os dados'
+        );
       });
   }
 }
