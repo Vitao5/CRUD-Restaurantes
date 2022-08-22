@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { ComponentsModule } from './../components/components.module';
 import { IconsModule } from './../common/icons/icons.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,10 +17,12 @@ import { CommonModule } from '@angular/common';
     
   ],
   declarations:[
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ],
   exports:[
-    HomeComponent
+    HomeComponent,
+    LoginComponent
   ]
 })
 export class ViewModule { }

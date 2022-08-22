@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
       nomeRestaurante: ['', Validators.required],
       novoNomeRestaurante: ['', Validators.required],
     });
+    this.notificationService.sucesso('Sucesso', 'Login efetuado com sucesso')
   }
   async listarRestaurantes() {
     await this.restauranteSerice

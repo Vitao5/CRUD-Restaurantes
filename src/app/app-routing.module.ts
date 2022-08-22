@@ -1,3 +1,4 @@
+import { LoginComponent } from './view/login/login.component';
 import { HomeComponent } from './view/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -9,8 +10,12 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
+    path: NavRouters.PAGE.LOGIN,
+    component: LoginComponent
+  },
+  {
     path: '',
-    component: HomeComponent
+    component: LoginComponent
   }
 ]
 

@@ -1,5 +1,8 @@
 @import "bootstrap";
 
+body{
+  background-color: rgb(117, 115, 207);
+}
 
 .icon {
     background-position: center;
@@ -19,4 +22,12 @@
 .botao-default {
   width: 2rem;
   height: 2rem;
+}
+
+.box-login{
+  margin-top: 5rem;
+}
+
+table{
+  background-color: white;
 }
