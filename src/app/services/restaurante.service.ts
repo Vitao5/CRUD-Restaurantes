@@ -10,7 +10,6 @@ export class RestauranteService {
 
 constructor(
   private http: HttpClient, 
-  private toast: NgToastService
 ) { }
 
   listarRestaurantes(){

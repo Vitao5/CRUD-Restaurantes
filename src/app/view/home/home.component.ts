@@ -3,6 +3,7 @@ import { Component, OnInit} from '@angular/core';
 import { faTrash, faPenSquare, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
+import { NotificationService } from 'src/app/services/notification.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -20,6 +21,7 @@ export class HomeComponent implements OnInit {
     private restauranteSerice: RestauranteService,
     private form: FormBuilder,
     private toast: NgToastService,
+    private notificationService: NotificationService
   ) {}
 
   ngOnInit() {
@@ -36,23 +38,14 @@ export class HomeComponent implements OnInit {
         this.listaRestaurantes = res;
       })
       .catch(() => {
-        
-        this.toast.error({
-          detail: 'Erro',
-          summary: 'Não foi possível listar os restaurantes',
-          sticky: true,
-        });
+        this.notificationService.erro('Erro', 'Não foi possível listar os restaurantes')   
       });
   }
 
   async adicionarRestaurantes() {
 
     if (this.formRestaurante.get('nomeRestaurante')?.value == undefined) {
-      this.toast.warning({
-        detail: 'Aviso',
-        summary: 'Favor preencha o campo para continuar',
-        duration: 2000,
-      });
+      this.notificationService.aviso('Aviso', 'Favor preencha o campo para continuar')
       this.formRestaurante.get('nomeRestaurante')?.markAsTouched();
     } else {
       const inBody = {
@@ -62,19 +55,11 @@ export class HomeComponent implements OnInit {
         .addRestaurantes(inBody)
         .then(() => {
           this.formRestaurante.get('nomeRestaurante')?.setValue('')
-          this.toast.success({
-            detail: 'Sucesso',
-            summary: 'Restaurante adicionado com êxito',
-            duration: 2000,
-          });
+          this.notificationService.sucesso('Sucesso', 'Restaurante adicionado com êxito')
           this.listarRestaurantes();
         })
         .catch(() => {
-          this.toast.error({
-          detail: 'Erro',
-          summary: 'Não foi possível adicionar um restaurante',
-          sticky: true,
-          });
+          this.notificationService.erro('Erro', 'Não foi possível adicionar um restaurante')
         });
     }
     
@@ -111,19 +96,11 @@ export class HomeComponent implements OnInit {
     this.restauranteSerice
       .editarRestaurante(inBody)
       .then(() => {
-        this.toast.success({
-          detail: 'Sucesso',
-          summary: 'Nome alterado com sucesso!',
-          duration: 2000,
-        });
+        this.notificationService.sucesso('Sucesso', 'Nome alterado com sucesso!')
         this.listarRestaurantes();
       })
       .catch(() => {
-        this.toast.error({
-          detail: 'Erro',
-          summary: 'Não foi possível alterar os dados',
-          sticky: true,
-        });
+        this.notificationService.erro( 'Erro', 'Não foi possível alterar os dados')
       });
   }
 }
