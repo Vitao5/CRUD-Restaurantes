@@ -1,3 +1,5 @@
+import { RouterModule } from '@angular/router';
+import { NovaContaComponent } from './nova-conta/nova-conta.component';
 import { LoginComponent } from './login/login.component';
 import { ComponentsModule } from './../components/components.module';
 import { IconsModule } from './../common/icons/icons.module';
@@ -13,16 +15,19 @@ import { CommonModule } from '@angular/common';
     IconsModule,
     FormsModule,
     ReactiveFormsModule,
-    ComponentsModule
+    ComponentsModule,
+    RouterModule
     
   ],
   declarations:[
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    NovaContaComponent
   ],
   exports:[
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    NovaContaComponent
   ]
 })
 export class ViewModule { }

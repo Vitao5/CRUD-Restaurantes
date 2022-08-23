@@ -1,7 +1,7 @@
-import { NotificationService } from './notification.service';
-import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { NotificationService } from './notification.service';
 import { Injectable } from '@angular/core';
+import axios from 'axios';
 
 @Injectable({
   providedIn: 'root'
@@ -9,30 +9,30 @@ import { Injectable } from '@angular/core';
 export class LoginService {
 
 constructor(
-  private http: HttpClient,
-  private notification: NotificationService
+  private notification: NotificationService,
+  private http: HttpClient
 ) { }
   
- login(idUser:number){
-  return this.http.get(`${environment.baseUrl}/v2/user/${idUser}/`).toPromise().then(res=>{{return res}}).catch(()=>{
+ login(inBody: any){
+  return this.http.get(`http://localhost:3000/usuarios/?email=${inBody.email}`).toPromise().then(res=>{{return res}}).catch(()=>{
     this.notification.erro('Atenção', 'Erro ao fazer login, verifique os dados digitados')
+  })
+ }
+ getUserName(name: string){
+  return this.http.get(`http://localhost:3000/usuarios/?nomeUsuario=${name}`).toPromise().then(res=>{{return res}}).catch(()=>{
+    this.notification.erro('Atenção', 'Não foi possível realizar a operação!')
   })
  }
  cadastrarUsuario(inBody: any){
   
-  return this.http.post(`${environment.baseUrl}v2/user/`, {
+  return axios.post(`http://localhost:3000/usuarios/`, {
+    nomeUsuario: inBody.nomeUsuario,
     email: inBody.email,
-    username: inBody.userName,
-    password: inBody.password
-  }).toPromise().then(()=>{
+    senha: inBody.senha
+  }).then(()=>{
     this.notification.sucesso('Sucesso', 'Cadastro realizado com sucesso')
-  }).catch((err)=>{
-    this.notification.erro('Erro', err.error.username[0])
-  })
- }
- buscarUsuarios(){
-  return this.http.get(`${environment.baseUrl}v2/user/`).toPromise().then().catch(()=>{
-  this.notification.erro('Erro', 'Não foi possível listar os usuários')
+  }).catch(()=>{
+    this.notification.erro('Erro', 'Não foi possível realizar o cadastro')
   })
  }
 }

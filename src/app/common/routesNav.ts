@@ -1,11 +1,13 @@
 export enum RouterEnum {
     HOME = 'home',
-    LOGIN = 'login'
+    LOGIN = 'login',
+    NOVA_CONTA = 'nova-conta'
 }
 
 export class NavRouters{
     static PAGE ={
         HOME: RouterEnum.HOME,
-        LOGIN: RouterEnum.LOGIN
+        LOGIN: RouterEnum.LOGIN,
+        NOVA_CONTA: RouterEnum.NOVA_CONTA
     }
 }

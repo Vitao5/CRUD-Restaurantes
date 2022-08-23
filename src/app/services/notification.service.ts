@@ -11,7 +11,7 @@ export class NotificationService {
     this.toast.success({
       detail: title,
       summary: content,
-      duration: 3000,
+      duration: 4000,
     });
   }
 
@@ -19,14 +19,14 @@ export class NotificationService {
     this.toast.warning({
       detail: title,
       summary: content,
-      duration: 3000,
+      duration: 4000,
     });
   }
   erro(title: string, content: string) {
     this.toast.error({
       detail: title,
       summary: content,
-      duration: 3000,
+      duration: 4000,
     });
   }
 }
