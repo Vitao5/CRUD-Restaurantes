@@ -2,7 +2,6 @@ import { RouterModule } from '@angular/router';
 import { NovaContaComponent } from './nova-conta/nova-conta.component';
 import { LoginComponent } from './login/login.component';
 import { ComponentsModule } from './../components/components.module';
-import { IconsModule } from './../common/icons/icons.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
@@ -12,7 +11,6 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     FormsModule,
-    IconsModule,
     FormsModule,
     ReactiveFormsModule,
     ComponentsModule,

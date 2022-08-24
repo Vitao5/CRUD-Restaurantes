@@ -42,6 +42,9 @@ body {
   background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
 }
 
-.border-success {
-  border: 4px solid rgb(12, 192, 36);
+
+.form-control{
+  &.ng-invalid.ng-touched{
+    border: 2px solid red;
+  }
 }

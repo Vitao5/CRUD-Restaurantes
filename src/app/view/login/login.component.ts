@@ -4,6 +4,7 @@ import { LoginService } from './../../services/login.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Utils } from 'src/app/common/Utils';
 
 @Component({
   selector: 'app-login',
@@ -21,13 +22,13 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private loginService: LoginService,
-    private notification: NotificationService,
+    private notificationService: NotificationService,
     private router: Router
   ) {}
 
   ngOnInit() {
     this.formLogin = this.fb.group({
-      email: ['', [Validators.required]],
+      email: ['', Validators.required ,Validators.pattern(Utils.getEmailPattern())],
       senha: ['', [Validators.required]],
     });
   
@@ -44,23 +45,23 @@ export class LoginComponent implements OnInit {
       await this.loginService.login(inBody).then((data) => {
         this.user = data;
         if (this.user[0] == undefined) {
-          this.notification.erro('Erro', 'Usuário não cadastrado!');
+          this.notificationService.erro('Erro', 'Usuário não cadastrado!');
         }
         if (this.user[0].senha != inBody.senha) {
-          this.notification.erro('Atenção', 'Senha incorreta');
+          this.notificationService.erro('Atenção', 'Senha incorreta');
         }
         if (
           this.user[0].email == inBody.email &&
           this.user[0].senha == inBody.senha
         ) {
-          this.notification.sucesso('Sucesso', 'Login efetuado')
           setTimeout(() => {
             this.router.navigateByUrl(NavRouters.PAGE.HOME);
           }, 500);
         }
       });
     } else {
-      this.notification.aviso('Atenção', 'Obrigatório preencher os campos');
+      this.formLogin.markAllAsTouched()
+      this.notificationService.aviso('Atenção', 'Obrigatório preencher os campos');
     }
   }
 

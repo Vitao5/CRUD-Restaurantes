@@ -46,6 +46,7 @@ export class HomeComponent implements OnInit {
         'Aviso',
         'Favor preencha o campo para continuar'
       );
+      this.formRestaurante.markAllAsTouched()
     } else {
       const inBody = {
         nome: this.formRestaurante.get('nomeRestaurante')?.value,
@@ -97,7 +98,14 @@ export class HomeComponent implements OnInit {
       nome: this.formRestaurante.get('novoNomeRestaurante')?.value,
       id: this.restauranteID,
     };
-    this.restauranteSerice
+    if(inBody.nome == ''){
+      this.notificationService.aviso(
+        'Aviso',
+        'Favor preencha o campo para continuar'
+      );
+    }
+    else{
+      this.restauranteSerice
       .editarRestaurante(inBody)
       .then(() => {
         this.notificationService.sucesso(
@@ -112,5 +120,6 @@ export class HomeComponent implements OnInit {
           'Não foi possível alterar os dados'
         );
       });
+    }
   }
 }
