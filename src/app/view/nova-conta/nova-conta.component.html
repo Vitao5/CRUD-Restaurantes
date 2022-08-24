@@ -1,10 +1,25 @@
 <section class="vh-100 gradient-custom">
   <div class="container py-5 h-100">
+    <!-- <div class="row d-flex justify-content-start ms-5">
+      <button type="button"  class="btn text-white mb-3" [routerLink]="'/login'">
+        Voltar
+      </button>
+
+    </div> -->
     <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="d-flex justify-content-start ms-4">
+        <button
+          type="button"
+          class="btn btn-outline-light btn-lg"
+          [routerLink]="'/login'"
+        >
+          Voltar
+        </button>
+      </div>
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
         <div class="card bg-dark text-white rounded-5">
           <div class="card-body p-5 text-center">
-            <h1 class="mb-5">Faça seu cadastro</h1>
+            <h1 class="mb-5">Cadastro</h1>
             <div class="mb-md-5 mt-md-2">
               <form [formGroup]="formCadastro">
                 <div class="form-outline form-white mb-4">
@@ -12,36 +27,37 @@
                   <input
                     type="text"
                     placeholder="Ex: João "
-                    class="form-control form-control-lg  "
+                    class="form-control form-control-lg"
                     (blur)="getUserName()"
                     formControlName="nomeUsuario"
                   />
                 </div>
                 <div class="form-outline form-white mb-4">
-                  <label class="form-label fs-5" for="email"
-                    >Email</label
-                  >
+                  <label class="form-label fs-5" for="email">Email</label>
                   <input
                     id="email"
                     type="email"
                     placeholder="Ex: vitin@email.com"
-                    class="form-control form-control-lg"
                     (blur)="verificaEmail()"
                     formControlName="email"
-                    pattern="/^[ \t]+$/"
+                    [ngClass]="
+                      testeEmail == true
+                        ? 'border-danger form-control form-control-lg'
+                        : 'form-control form-control-lg'
+                    "
                   />
+                  <p class="text-danger pt-1 fw-bold" *ngIf="testeEmail">
+                    Email inválido
+                  </p>
                 </div>
                 <div class="form-outline form-white mb-4">
-                  <label class="form-label fs-5" for="senha"
-                    >Senha</label
-                  >
+                  <label class="form-label fs-5" for="senha">Senha</label>
                   <input
                     id="senha"
                     type="password"
                     placeholder="********"
                     class="form-control form-control-lg"
                     formControlName="senha"
-                    pattern="/^[ \t]+$/"
                   />
                 </div>
                 <div class="form-outline form-white mb-4">
@@ -54,7 +70,6 @@
                     placeholder="********"
                     class="form-control form-control-lg"
                     formControlName="confirmSenha"
-                    pattern="/^[ \t]+$/"
                   />
                 </div>
               </form>

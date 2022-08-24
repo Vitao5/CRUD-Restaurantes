@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     ReactiveFormsModule,
     ComponentsModule,
-    RouterModule
+    RouterModule,
     
   ],
   declarations:[
