@@ -6,8 +6,7 @@
     data-bs-toggle="modal"
     data-bs-target="#modalEditarRestaurante"
     data-bs-whatever="@mdo"
-  >
-  </button>
+  ></button>
   <table class="table table-striped rounded-4">
     <thead class="text-center">
       <tr>
@@ -21,16 +20,17 @@
         <td>{{ restaurante.id }}</td>
         <td>{{ restaurante.nome }}</td>
         <td>
-          <button class="btn icon icon-trash botao-default" (click)="deletarRestaurantes(restaurante.id)">
-          </button>
+          <button
+            class="btn icon icon-trash botao-default"
+            (click)="deletarRestaurantes(restaurante.id)"
+          ></button>
           <button
             class="btn icon icon-edit botao-default ms-3"
             (click)="buscaRestauranteID(restaurante.id)"
             data-bs-toggle="modal"
             data-bs-target="#modalAtualizarRestaurante"
             data-bs-whatever="@mdo"
-          > 
-          </button>
+          ></button>
         </td>
       </tr>
     </tbody>
@@ -46,10 +46,8 @@
 >
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title " id="exampleModalLabel">
-          Adicionar restaurante
-        </h5>
+      <div class="modal-header bg-dark text-white text-center">
+        <h5 id="exampleModalLabel">Adicionar restaurante</h5>
         <button
           type="button"
           class="btn-close"
@@ -68,17 +66,22 @@
               class="form-control"
               id="recipient-name"
               formControlName="nomeRestaurante"
+              placeholder="Nome do restaurante "
             />
           </div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+      <div class="modal-footer justify-content-center">
+        <button
+          type="button"
+          class="btn btn-secondary col-lg-3 col-4"
+          data-bs-dismiss="modal"
+        >
           Fechar
         </button>
         <button
           type="button"
-          class="btn btn-dark"
+          class="btn btn-dark col-4 col-lg-3 ms-5"
           (click)="adicionarRestaurantes()"
         >
           Enviar
@@ -97,10 +100,8 @@
 >
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalAtualizarRestaurante">
-          Atualizar restaurante
-        </h5>
+      <div class="modal-header bg-dark text-white text-center">
+        <h5 id="modalAtualizarRestaurante ">Atualizar restaurante</h5>
         <button
           type="button"
           class="btn-close"
@@ -119,17 +120,22 @@
               class="form-control"
               id="recipient-name"
               formControlName="novoNomeRestaurante"
+              placeholder="Nome do restaurante "
             />
           </div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+      <div class="modal-footer justify-content-center">
+        <button
+          type="button"
+          class="btn btn-secondary col-lg-3 col-4"
+          data-bs-dismiss="modal"
+        >
           Fechar
         </button>
         <button
           type="button"
-          class="btn btn-dark"
+          class="btn btn-dark ms-5 col-lg-3 col-4"
           (click)="editarRestaurante()"
           data-bs-dismiss="modal"
         >

@@ -2,36 +2,68 @@
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card bg-dark text-white rounded-5" >
+        <div class="card bg-dark text-white rounded-5">
           <div class="card-body p-5 text-center">
             <h1 class="mb-5">Faça seu cadastro</h1>
-            <div class="mb-md-5 mt-md-2 ">
+            <div class="mb-md-5 mt-md-2">
               <form [formGroup]="formCadastro">
                 <div class="form-outline form-white mb-4">
-                  <label class="form-label fs-5" >Nome de usuário</label>
-                  <input type="text"  placeholder="Ex: João " class="form-control form-control-lg" (blur)="getUserName()" formControlName="nomeUsuario"/>
+                  <label class="form-label fs-5">Nome de usuário</label>
+                  <input
+                    type="text"
+                    placeholder="Ex: João "
+                    class="form-control form-control-lg"
+                    (blur)="getUserName()"
+                    formControlName="nomeUsuario"
+                  />
                 </div>
                 <div class="form-outline form-white mb-4">
-                  <label class="form-label  fs-5"  for="typePasswordX">Email</label>
-                  <input type="email"  placeholder="Ex: vitin@email.com" class="form-control form-control-lg" (blur)="verificaEmail()" formControlName="email"/>
+                  <label class="form-label fs-5" for="typePasswordX"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    placeholder="Ex: vitin@email.com"
+                    class="form-control form-control-lg"
+                    (blur)="verificaEmail()"
+                    formControlName="email"
+                  />
                 </div>
                 <div class="form-outline form-white mb-4">
-                  <label class="form-label  fs-5"  for="typePasswordX">Senha</label>
-                  <input type="password"  placeholder="********" class="form-control form-control-lg" formControlName="senha"/>
+                  <label class="form-label fs-5" for="typePasswordX"
+                    >Senha</label
+                  >
+                  <input
+                    type="password"
+                    placeholder="********"
+                    class="form-control form-control-lg"
+                    formControlName="senha"
+                  />
                 </div>
                 <div class="form-outline form-white mb-4">
-                  <label class="form-label  fs-5"  for="typePasswordX">Confirme a senha</label>
-                  <input type="password"  placeholder="********" class="form-control form-control-lg" formControlName="confirmSenha"/>
+                  <label class="form-label fs-5" for="typePasswordX"
+                    >Confirme a senha</label
+                  >
+                  <input
+                    type="password"
+                    placeholder="********"
+                    class="form-control form-control-lg"
+                    formControlName="confirmSenha"
+                  />
                 </div>
               </form>
-      
-              <button class="btn btn-outline-light btn-lg px-5" type="button" (click)="addUser()">Cadastrar</button>
-            </div>
 
+              <button
+                class="btn btn-outline-light btn-lg px-5"
+                type="button"
+                (click)="addUser()"
+              >
+                Cadastrar
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-

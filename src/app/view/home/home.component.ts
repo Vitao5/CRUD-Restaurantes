@@ -46,7 +46,6 @@ export class HomeComponent implements OnInit {
         'Aviso',
         'Favor preencha o campo para continuar'
       );
-      this.formRestaurante.get('nomeRestaurante')?.markAsTouched();
     } else {
       const inBody = {
         nome: this.formRestaurante.get('nomeRestaurante')?.value,
@@ -64,7 +63,7 @@ export class HomeComponent implements OnInit {
         .catch(() => {
           this.notificationService.erro(
             'Erro',
-            'Não foi possível adicionar um restaurante'
+            'Não foi possível adicionar o restaurante'
           );
         });
     }

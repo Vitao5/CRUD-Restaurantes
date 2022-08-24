@@ -2,44 +2,55 @@
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card bg-dark text-white rounded-5" >
+        <div class="card bg-dark text-white rounded-5">
           <div class="card-body p-5 text-center">
             <h1 class="mb-5">LOGIN</h1>
-            <div class="mb-md-5 mt-md-2 pb-5">
+            <div class="mb-md-3 mt-md-2 pb-5">
               <form [formGroup]="formLogin">
                 <div class="form-outline form-white mb-4">
                   <label class="form-label fs-5" for="typeEmailX">Email</label>
-                  <input type="email" formControlName="email" placeholder="seu email" class="form-control form-control-lg" />
+                  <input
+                    type="email"
+                    formControlName="email"
+                    placeholder="seu email"
+                    class="form-control form-control-lg"
+                  />
                 </div>
-  
-                <div class="form-outline form-white mb-4">
-                  <label class="form-label  fs-5"  for="typePasswordX">Senha</label>
-                  <input type="password" formControlName="senha" placeholder="********" class="form-control form-control-lg" />
+
+                <div class="form-outline form-white">
+                  <label class="form-label fs-5" for="typePasswordX"
+                    >Senha</label
+                  >
+                  <input
+                    type="password"
+                    formControlName="senha"
+                    placeholder="********"
+                    class="form-control form-control-lg"
+                  />
                 </div>
               </form>
-      
-              <button class="btn btn-outline-light btn-lg px-5" type="button" (click)="login()">Entrar</button>
 
-              <div class="d-flex justify-content-center text-center mt-4 pt-1">
-                <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
-                <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
-                <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
-              </div>
-
+              <button
+                class="btn btn-outline-light btn-lg px-5 mt-5"
+                type="button"
+                (click)="login()"
+              >
+                Entrar
+              </button>
             </div>
 
-            <div >
-              <p class="mb-0">Não possui uma conta ? 
-              </p>
-              <button class="btn text-white" [routerLink]="['/nova-conta']">Clique aqui</button>
-        
+            <p class="mb-0">Não possui uma conta ?</p>
+            <div class="pt-3">
+              <button
+                class="btn btn-outline-light"
+                [routerLink]="['/nova-conta']"
+              >
+                Clique aqui
+              </button>
             </div>
-
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-
