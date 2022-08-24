@@ -12,16 +12,17 @@
                   <input
                     type="text"
                     placeholder="Ex: João "
-                    class="form-control form-control-lg"
+                    class="form-control form-control-lg  "
                     (blur)="getUserName()"
                     formControlName="nomeUsuario"
                   />
                 </div>
                 <div class="form-outline form-white mb-4">
-                  <label class="form-label fs-5" for="typePasswordX"
+                  <label class="form-label fs-5" for="email"
                     >Email</label
                   >
                   <input
+                    id="email"
                     type="email"
                     placeholder="Ex: vitin@email.com"
                     class="form-control form-control-lg"
@@ -30,10 +31,11 @@
                   />
                 </div>
                 <div class="form-outline form-white mb-4">
-                  <label class="form-label fs-5" for="typePasswordX"
+                  <label class="form-label fs-5" for="senha"
                     >Senha</label
                   >
                   <input
+                    id="senha"
                     type="password"
                     placeholder="********"
                     class="form-control form-control-lg"
@@ -41,10 +43,11 @@
                   />
                 </div>
                 <div class="form-outline form-white mb-4">
-                  <label class="form-label fs-5" for="typePasswordX"
+                  <label class="form-label fs-5" for="confirmSenha"
                     >Confirme a senha</label
                   >
                   <input
+                    id="confirmSenha"
                     type="password"
                     placeholder="********"
                     class="form-control form-control-lg"

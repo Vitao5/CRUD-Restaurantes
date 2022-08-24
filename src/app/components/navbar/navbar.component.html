@@ -1,8 +1,53 @@
 <nav class="navbar navbar-expand-lg bg-dark d-flex">
-  <div class="container-fluid justify-content-center ">
+  <div class="container-fluid justify-content-center">
     <h2 class="text-white">Restaurantes Rede Alegria+</h2>
   </div>
-  <div class="justify-content-end text-white me-5">
-    <button class="btn  icon icon-trash botao-default" [routerLink]="[ '/login']"></button>
+  <div class="justify-content-end text-white me-lg-5 ms-3">
+    <button
+      class="btn icon icon-exit botao-default"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    ></button>
   </div>
 </nav>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div
+        class="rounded-top justify-content-center bg-dark text-white text-center py-3"
+      >
+        <h5 class="modal-title" id="exampleModalLabel">
+          Deseja realmente sair ?
+        </h5>
+      </div>
+      <div class="modal-body">
+        <p>Clique em <strong>Cancelar</strong> para se manter na página !</p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button
+          type="button"
+          class="btn btn-secondary col-lg-3 col-4"
+          data-bs-dismiss="modal"
+        >
+          Cancelar
+        </button>
+        <button
+          type="button"
+          class="btn btn-dark col-lg-3 col-4 ms-5"
+          data-bs-dismiss="modal"
+          [routerLink]="['/login']"
+        >
+          Sair
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -43,6 +43,7 @@ export class NovaContaComponent implements OnInit {
             'Atenção',
             'Usuário já cadastrado com esse email'
           );
+      
           setTimeout(() => {
             this.formCadastro.get('email')?.setValue('');
           }, 900);
@@ -52,7 +53,6 @@ export class NovaContaComponent implements OnInit {
   }
   async getUserName() {
     const name = this.formCadastro.get('nomeUsuario')?.value;
-
     if (name != '' && name != undefined) {
       this.loginService.getUserName(name).then((data) => {
         this.userName = data;

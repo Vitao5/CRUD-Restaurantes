@@ -44,16 +44,12 @@
   aria-labelledby="modalEditarRestaurante"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header bg-dark text-white text-center">
-        <h5 id="exampleModalLabel">Adicionar restaurante</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+      <div
+        class="rounded-top justify-content-center bg-dark text-white text-center py-3"
+      >
+        <h5>Adicionar restaurante</h5>
       </div>
       <div class="modal-body">
         <form [formGroup]="formRestaurante">
@@ -98,16 +94,12 @@
   aria-labelledby="modalAtualizarRestaurante"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header bg-dark text-white text-center">
-        <h5 id="modalAtualizarRestaurante ">Atualizar restaurante</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+      <div
+        class="rounded-top justify-content-center bg-dark text-white text-center py-3"
+      >
+        <h5>Atualizar restaurante</h5>
       </div>
       <div class="modal-body">
         <form [formGroup]="formRestaurante">
