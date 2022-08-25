@@ -5,18 +5,21 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+interface DadosUser{
+  id: number,
+  nomeUsuario: string,
+  email: string,
+  senha: string
+}
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
 })
+
 export class LoginComponent implements OnInit {
+
   formLogin: FormGroup;
-
-  listaUsuarios: any = [];
-  user: any = [];
-  email: any = [];
-
-  disableButton: boolean = false;
+  user: Array<DadosUser>;
 
   constructor(
     private fb: FormBuilder,
@@ -33,7 +36,6 @@ export class LoginComponent implements OnInit {
   
   }
 
-
   async login() {
     const inBody = {
       email: this.formLogin.get('email')?.value,
@@ -41,8 +43,9 @@ export class LoginComponent implements OnInit {
     };
 
     if (inBody.email != '' && inBody.senha != '') {
-      await this.loginService.login(inBody).then((data) => {
-        this.user = data;
+      await this.loginService.login(inBody).then((data: any ) => {
+       this.user = data
+       
         if (this.user[0] == undefined) {
           this.notificationService.erro('Erro', 'Usuário não cadastrado!');
         }

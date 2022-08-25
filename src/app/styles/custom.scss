@@ -21,7 +21,8 @@
   &-exit {
     background-image: url("./img/exit.png");
   }
-  &-return{
+
+  &-return {
     background-image: url("./img/return.png");
   }
 }
@@ -45,12 +46,12 @@ body {
   background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
 }
 
-.border-danger{
+.border-danger {
   border: 2px solid red !important;
 }
 
-.form-control{
-  &.ng-invalid.ng-touched{
+.form-control {
+  &.ng-invalid.ng-touched {
     border: 2px solid red;
   }
 }

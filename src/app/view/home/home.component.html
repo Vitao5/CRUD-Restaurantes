@@ -1,12 +1,7 @@
 <app-navbar></app-navbar>
 <div class="container">
-  <button
-    type="button"
-    class="btn mt-4 mb-3 icon icon-add botao-default"
-    data-bs-toggle="modal"
-    data-bs-target="#modalEditarRestaurante"
-    data-bs-whatever="@mdo"
-  ></button>
+  <button type="button" class="btn mt-4 mb-3 icon icon-add botao-default" data-bs-toggle="modal"
+    data-bs-target="#modalEditarRestaurante" data-bs-whatever="@mdo"></button>
   <table class="table table-striped rounded-4">
     <thead class="text-center">
       <tr>
@@ -20,66 +15,36 @@
         <td>{{ restaurante.id }}</td>
         <td>{{ restaurante.nome }}</td>
         <td>
-          <button
-            class="btn icon icon-trash botao-default"
-            (click)="deletarRestaurantes(restaurante.id)"
-          ></button>
-          <button
-            class="btn icon icon-edit botao-default ms-3"
-            (click)="buscaRestauranteID(restaurante.id)"
-            data-bs-toggle="modal"
-            data-bs-target="#modalAtualizarRestaurante"
-            data-bs-whatever="@mdo"
-          ></button>
+          <button class="btn icon icon-trash botao-default" (click)="deletarRestaurantes(restaurante.id)"></button>
+          <button class="btn icon icon-edit botao-default ms-3" (click)="buscaRestauranteID(restaurante.id)"
+            data-bs-toggle="modal" data-bs-target="#modalAtualizarRestaurante" data-bs-whatever="@mdo"></button>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
 
-<div
-  class="modal fade"
-  id="modalEditarRestaurante"
-  tabindex="-1"
-  aria-labelledby="modalEditarRestaurante"
-  aria-hidden="true"
->
+<div class="modal fade" id="modalEditarRestaurante" tabindex="-1" aria-labelledby="modalEditarRestaurante"
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div
-        class="rounded-top justify-content-center bg-dark text-white text-center py-3"
-      >
+      <div class="rounded-top justify-content-center bg-dark text-white text-center py-3">
         <h5>Adicionar restaurante</h5>
       </div>
       <div class="modal-body">
         <form [formGroup]="formRestaurante">
           <div class="mb-3">
-            <label for="recipient-name" class="col-form-label"
-              >Nome do restaurante:</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              id="recipient-name"
-              formControlName="nomeRestaurante"
-              placeholder="Nome do restaurante "
-            />
+            <label for="recipient-name" class="col-form-label">Nome do restaurante:</label>
+            <input type="text" class="form-control" id="recipient-name" formControlName="nomeRestaurante"
+              placeholder="Nome do restaurante " />
           </div>
         </form>
       </div>
       <div class="modal-footer justify-content-center">
-        <button
-          type="button"
-          class="btn btn-secondary col-lg-3 col-4"
-          data-bs-dismiss="modal"
-        >
+        <button type="button" class="btn btn-secondary col-lg-3 col-4" data-bs-dismiss="modal">
           Fechar
         </button>
-        <button
-          type="button"
-          class="btn btn-dark col-4 col-lg-3 ms-5"
-          (click)="adicionarRestaurantes()"
-        >
+        <button type="button" class="btn btn-dark col-4 col-lg-3 ms-5" (click)="adicionarRestaurantes()">
           Enviar
         </button>
       </div>
@@ -87,49 +52,27 @@
   </div>
 </div>
 
-<div
-  class="modal fade"
-  id="modalAtualizarRestaurante"
-  tabindex="-1"
-  aria-labelledby="modalAtualizarRestaurante"
-  aria-hidden="true"
->
+<div class="modal fade" id="modalAtualizarRestaurante" tabindex="-1" aria-labelledby="modalAtualizarRestaurante"
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div
-        class="rounded-top justify-content-center bg-dark text-white text-center py-3"
-      >
+      <div class="rounded-top justify-content-center bg-dark text-white text-center py-3">
         <h5>Atualizar restaurante</h5>
       </div>
       <div class="modal-body">
         <form [formGroup]="formRestaurante">
           <div class="mb-3">
-            <label for="recipient-name" class="col-form-label"
-              >Nome do restaurante:</label
-            >
-            <input
-              type="text"
-              class="form-control"
-              id="recipient-name"
-              formControlName="novoNomeRestaurante"
-              placeholder="Nome do restaurante "
-            />
+            <label for="recipient-name" class="col-form-label">Nome do restaurante:</label>
+            <input type="text" class="form-control" id="recipient-name" formControlName="novoNomeRestaurante"
+              placeholder="Nome do restaurante " />
           </div>
         </form>
       </div>
       <div class="modal-footer justify-content-center">
-        <button
-          type="button"
-          class="btn btn-secondary col-lg-3 col-4"
-          data-bs-dismiss="modal"
-        >
+        <button type="button" class="btn btn-secondary col-lg-3 col-4" data-bs-dismiss="modal">
           Fechar
         </button>
-        <button
-          type="button"
-          class="btn btn-dark ms-5 col-lg-3 col-4"
-          (click)="editarRestaurante()"
-        >
+        <button type="button" class="btn btn-dark ms-5 col-lg-3 col-4" (click)="editarRestaurante()">
           Atualizar
         </button>
       </div>

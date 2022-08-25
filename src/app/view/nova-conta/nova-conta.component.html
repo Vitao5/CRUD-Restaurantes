@@ -1,18 +1,8 @@
 <section class="vh-100 gradient-custom">
   <div class="container py-5 h-100">
-    <!-- <div class="row d-flex justify-content-start ms-5">
-      <button type="button"  class="btn text-white mb-3" [routerLink]="'/login'">
-        Voltar
-      </button>
-
-    </div> -->
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="d-flex justify-content-start ms-4">
-        <button
-          type="button"
-          class="btn btn-outline-light btn-lg"
-          [routerLink]="'/login'"
-        >
+        <button type="button" class="btn btn-outline-light btn-lg" [routerLink]="'/login'">
           Voltar
         </button>
       </div>
@@ -24,69 +14,34 @@
               <form [formGroup]="formCadastro">
                 <div class="form-outline form-white mb-4">
                   <label class="form-label fs-5">Nome de usuário</label>
-                  <input
-                    type="text"
-                    placeholder="Ex: João "
-                    class="form-control form-control-lg"
-                    (blur)="getUserName()"
-                    formControlName="nomeUsuario"
-                    pattern="^[^-\s][a-zA-ZÀ-ú ]*"
-                    required
-                  />
+                  <input type="text" placeholder="Ex: João " class="form-control form-control-lg" (blur)="getUserName()"
+                    formControlName="nomeUsuario" pattern="^[^-\s][a-zA-ZÀ-ú ]*" required />
                 </div>
                 <div class="form-outline form-white mb-4">
                   <label class="form-label fs-5" for="email">Email</label>
-                  <input
-                    id="email"
-                    type="email"
-                    placeholder="Ex: vitin@email.com"
-                    (blur)="verificaEmail()"
-                    pattern="^[^-\s][a-zA-ZÀ-ú ]*"
-                    formControlName="email"
-                    required
-                    [ngClass]="
+                  <input id="email" type="email" placeholder="Ex: vitin@email.com" (blur)="verificaEmail()"
+                    pattern="^[^-\s][a-zA-ZÀ-ú ]*" formControlName="email" required [ngClass]="
                       testeEmail == true
                         ? 'border-danger form-control form-control-lg'
                         : 'form-control form-control-lg'
-                    "
-                  />
+                    " />
                   <p class="text-danger pt-1 fw-bold" *ngIf="testeEmail">
                     Email inválido
                   </p>
                 </div>
                 <div class="form-outline form-white mb-4">
                   <label class="form-label fs-5" for="senha">Senha</label>
-                  <input
-                    id="senha"
-                    type="password"
-                    placeholder="********"
-                    class="form-control form-control-lg"
-                    formControlName="senha"
-                    pattern="^[^-\s][a-zA-ZÀ-ú ]*"
-                    required
-                  />
+                  <input id="senha" type="password" placeholder="********" class="form-control form-control-lg"
+                    formControlName="senha" pattern="^[^-\s][a-zA-ZÀ-ú ]*" required />
                 </div>
                 <div class="form-outline form-white mb-4">
-                  <label class="form-label fs-5" for="confirmSenha"
-                    >Confirme a senha</label
-                  >
-                  <input
-                    id="confirmSenha"
-                    type="password"
-                    placeholder="********"
-                    class="form-control form-control-lg"
-                    formControlName="confirmSenha"
-                    pattern="^[^-\s][a-zA-ZÀ-ú ]*"
-                    required
-                  />
+                  <label class="form-label fs-5" for="confirmSenha">Confirme a senha</label>
+                  <input id="confirmSenha" type="password" placeholder="********" class="form-control form-control-lg"
+                    formControlName="confirmSenha" pattern="^[^-\s][a-zA-ZÀ-ú ]*" required />
                 </div>
               </form>
 
-              <button
-                class="btn btn-outline-light btn-lg px-5"
-                type="button"
-                (click)="addUser()"
-              >
+              <button class="btn btn-outline-light btn-lg px-5" type="button" (click)="addUser()">
                 Cadastrar
               </button>
             </div>

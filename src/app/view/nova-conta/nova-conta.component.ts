@@ -37,8 +37,8 @@ export class NovaContaComponent implements OnInit {
     const inBody = {
       email: this.formCadastro.get('email')?.value,
     };
+
     const regexMail = /\S+@\S+\.\S+/
-    
     const emailValidator =  regexMail.test(inBody.email);
   
     
@@ -47,7 +47,7 @@ export class NovaContaComponent implements OnInit {
       }
       else {
         this.testeEmail = false
-        this.loginService.login(inBody).then((data) => {
+        this.loginService.login(inBody).then((data: any) => {
           this.email = data;
           if (this.email[0]?.email == inBody.email) {
             this.notificationService.erro(

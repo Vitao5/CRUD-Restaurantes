@@ -1,3 +1,4 @@
+
 import { NovaContaComponent } from './view/nova-conta/nova-conta.component';
 import { LoginComponent } from './view/login/login.component';
 import { HomeComponent } from './view/home/home.component';
@@ -20,6 +21,10 @@ const routes: Routes = [
   },
   {
     path: '',
+    component: LoginComponent
+  },
+  {
+    path:'**',
     component: LoginComponent
   }
 ]

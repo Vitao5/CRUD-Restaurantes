@@ -1,3 +1,4 @@
+
 import { RouterModule } from '@angular/router';
 import { NovaContaComponent } from './nova-conta/nova-conta.component';
 import { LoginComponent } from './login/login.component';
@@ -20,12 +21,12 @@ import { CommonModule } from '@angular/common';
   declarations:[
     HomeComponent,
     LoginComponent,
-    NovaContaComponent
+    NovaContaComponent,
   ],
   exports:[
     HomeComponent,
     LoginComponent,
-    NovaContaComponent
+    NovaContaComponent,
   ]
 })
 export class ViewModule { }

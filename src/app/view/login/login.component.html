@@ -9,42 +9,25 @@
               <form [formGroup]="formLogin">
                 <div class="form-outline form-white mb-4">
                   <label class="form-label fs-5" for="typeEmailX">Email</label>
-                  <input
-                    type="email"
-                    formControlName="email"
-                    placeholder="seu email"
-                    class="form-control form-control-lg"
-                  />
+                  <input type="email" formControlName="email" placeholder="seu email"
+                    class="form-control form-control-lg" />
                 </div>
 
                 <div class="form-outline form-white">
-                  <label class="form-label fs-5" for="typePasswordX"
-                    >Senha</label
-                  >
-                  <input
-                    type="password"
-                    formControlName="senha"
-                    placeholder="********"
-                    class="form-control form-control-lg"
-                  />
+                  <label class="form-label fs-5" for="typePasswordX">Senha</label>
+                  <input type="password" formControlName="senha" placeholder="********"
+                    class="form-control form-control-lg" />
                 </div>
               </form>
 
-              <button
-                class="btn btn-outline-light btn-lg px-5 mt-5"
-                type="button"
-                (click)="login()"
-              >
+              <button class="btn btn-outline-light btn-lg px-5 mt-5" type="button" (click)="login()">
                 Entrar
               </button>
             </div>
 
             <p class="mb-0">Não possui uma conta ?</p>
             <div class="pt-3">
-              <button
-                class="btn btn-outline-light"
-                [routerLink]="['/nova-conta']"
-              >
+              <button class="btn btn-outline-light" [routerLink]="['/nova-conta']">
                 Clique aqui
               </button>
             </div>
