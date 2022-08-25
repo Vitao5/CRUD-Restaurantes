@@ -2,21 +2,21 @@
   "usuarios": [
     {
       "id": 1,
-      "nomeUsuario": "vitin",
-      "email": "root@root.com",
-      "senha": "1234"
-    },
-    {
-      "nomeUsuario": "ssss",
-      "email": "ededeemail@w.com",
-      "senha": "ssssss",
-      "id": 2
-    },
-    {
-      "id": 1,
       "nomeUsuario": "1",
       "email": "1",
       "senha": "1"
+    },
+    {
+      "nomeUsuario": "dededededede",
+      "email": "victor.moreira@bit.com.br",
+      "senha": "11111",
+      "id": 2
+    },
+    {
+      "nomeUsuario": "vitin",
+      "email": "f@f.com",
+      "senha": "11111",
+      "id": 3
     }
   ]
 }
