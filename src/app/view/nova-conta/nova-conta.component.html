@@ -30,6 +30,8 @@
                     class="form-control form-control-lg"
                     (blur)="getUserName()"
                     formControlName="nomeUsuario"
+                    pattern="^[^-\s][a-zA-ZÀ-ú ]*"
+                    required
                   />
                 </div>
                 <div class="form-outline form-white mb-4">
@@ -39,7 +41,9 @@
                     type="email"
                     placeholder="Ex: vitin@email.com"
                     (blur)="verificaEmail()"
+                    pattern="^[^-\s][a-zA-ZÀ-ú ]*"
                     formControlName="email"
+                    required
                     [ngClass]="
                       testeEmail == true
                         ? 'border-danger form-control form-control-lg'
@@ -58,6 +62,8 @@
                     placeholder="********"
                     class="form-control form-control-lg"
                     formControlName="senha"
+                    pattern="^[^-\s][a-zA-ZÀ-ú ]*"
+                    required
                   />
                 </div>
                 <div class="form-outline form-white mb-4">
@@ -70,6 +76,8 @@
                     placeholder="********"
                     class="form-control form-control-lg"
                     formControlName="confirmSenha"
+                    pattern="^[^-\s][a-zA-ZÀ-ú ]*"
+                    required
                   />
                 </div>
               </form>

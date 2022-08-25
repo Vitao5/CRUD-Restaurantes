@@ -15,12 +15,12 @@ constructor(
   
  login(inBody: any){
   return this.http.get(`http://localhost:3000/usuarios/?email=${inBody.email}`).toPromise().then(res=>{{return res}}).catch(()=>{
-    this.notification.erro('Atenção', 'Erro ao fazer login, verifique os dados digitados')
+    this.notification.erro('Atenção', 'Erro ao realizar operação')
   })
  }
  getUserName(name: string){
   return this.http.get(`http://localhost:3000/usuarios/?nomeUsuario=${name}`).toPromise().then(res=>{{return res}}).catch(()=>{
-    this.notification.erro('Atenção', 'Não foi possível realizar a operação!')
+    this.notification.erro('Atenção', 'Erro ao realizar operação')
   })
  }
  cadastrarUsuario(inBody: any){

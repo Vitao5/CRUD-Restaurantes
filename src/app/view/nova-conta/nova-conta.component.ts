@@ -5,7 +5,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 import { NotificationService } from 'src/app/services/notification.service';
-import * as EmailValidator from 'email-validator';
 @Component({
   selector: 'app-nova-conta',
   templateUrl: './nova-conta.component.html',
@@ -38,7 +37,9 @@ export class NovaContaComponent implements OnInit {
     const inBody = {
       email: this.formCadastro.get('email')?.value,
     };
-    const emailValidator =  EmailValidator.validate(inBody.email);
+    const regexMail = /\S+@\S+\.\S+/
+    
+    const emailValidator =  regexMail.test(inBody.email);
   
     
       if(!emailValidator){
@@ -92,7 +93,14 @@ export class NovaContaComponent implements OnInit {
       confirmeSenha: this.formCadastro.get('confirmSenha')?.value
     };
    
-    
+    if(this.testeEmail){
+      this.notificationService.erro(
+        'Erro',
+        'Email no formato inválido'
+        )
+     }
+
+   else{
     if (inBody.email == '' || inBody.nomeUsuario == '' || inBody.senha == '') {
       this.notificationService.aviso('Atenção', 'Obrigatório preencher os campos');
       this.formCadastro.markAllAsTouched()
@@ -108,12 +116,7 @@ export class NovaContaComponent implements OnInit {
       ) {
         this.notificationService.aviso('Atenção', 'Senha mínimo de 5 caracteres');
       }
-      if(this.testeEmail){
-        this.notificationService.erro(
-          'Erro',
-          'Email no formato inválido'
-          )
-       }
+
       if (inBody.senha == inBody.confirmeSenha) {
         if(
            inBody.email.trim().length === 0 ||
@@ -124,25 +127,21 @@ export class NovaContaComponent implements OnInit {
            {
             this.notificationService.aviso(
               'Aviso',
-              'Não é permetido espaços em branco'
+              'Não é permitido espaços em branco'
             )
            }
            
            else{
              this.loginService.cadastrarUsuario(inBody).then(() => {
-               this.formCadastro.get('email')?.setValue('');
-               this.formCadastro.get('nomeUsuario')?.setValue('');
-               this.formCadastro.get('senha')?.setValue('');
-               this.formCadastro.get('confirmSenha')?.setValue('');
-                          
             this.notificationService.sucesso('Sucesso', 'Usuário cadastrado');
             setTimeout(() => {
               this.router.navigateByUrl(NavRouters.PAGE.LOGIN)
-            }, 2000);
+            }, 1500);
           });
         }
 
       }
     }
+   }
   }
 }
