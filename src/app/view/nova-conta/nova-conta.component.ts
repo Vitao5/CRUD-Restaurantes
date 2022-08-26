@@ -105,6 +105,7 @@ export class NovaContaComponent implements OnInit {
           }
           
           else{
+            this.notificationService.aviso('Atenção', 'Senha mínimo de 5 caracteres')
             return false
           }
       } 
