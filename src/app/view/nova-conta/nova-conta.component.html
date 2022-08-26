@@ -18,7 +18,7 @@
                     formControlName="nomeUsuario" pattern="^[^-\s][a-zA-ZÀ-ú ]*" required autofocus/>
                 </div>
                 <div class="form-outline form-white mb-4">
-                  <label class="form-label fs-5" for="email">Email</label>
+                  <label class="form-label fs-5" for="email">E-mail</label>
                   <input id="email" type="email" placeholder="Ex: vitin@email.com" (blur)="verificaEmail()"
                     pattern="^[^-\s][a-zA-ZÀ-ú ]*" formControlName="email" required [ngClass]="
                       testeEmail == true

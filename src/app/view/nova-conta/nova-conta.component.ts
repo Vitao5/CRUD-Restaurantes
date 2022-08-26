@@ -52,7 +52,7 @@ export class NovaContaComponent implements OnInit {
             if (this.email[0]?.email == this.objectForm().email) {
                 this.notificationService.erro(
                     'Atenção',
-                    'Usuário já cadastrado com esse email'
+                    'Usuário já cadastrado com esse e-mail'
                 );
                 setTimeout(() => {
                     this.formCadastro.get('email')?.setValue('');
@@ -120,10 +120,10 @@ export class NovaContaComponent implements OnInit {
     async addUser() {
       
         if (this.testeEmail) {
-            this.notificationService.erro('Erro', 'Email no formato inválido');
+            this.notificationService.erro('Erro', 'E-mail no formato inválido');
         } else {
             if (this.objectForm().email == '' || this.objectForm().nomeUsuario == '' || this.objectForm().senha == '') {
-                this.notificationService.aviso('Atenção','Obrigatório preencher os campos');
+                this.notificationService.aviso('Atenção','Obrigatório preencher os campos vazios');
                 this.formCadastro.markAllAsTouched();
             } else {
                 if (this.verificaSenha()) {

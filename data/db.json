@@ -2,9 +2,33 @@
   "usuarios": [
     {
       "id": 1,
-      "nomeUsuario": "1",
-      "email": "1",
-      "senha": "1"
+      "nomeUsuario": "root",
+      "email": "root",
+      "senha": "12345"
+    },
+    {
+      "id": 2,
+      "nomeUsuario": "vitin",
+      "email": "vitinmoreira1908@gmail.com",
+      "senha": "12345"
+    },
+    {
+      "nomeUsuario": "joao",
+      "email": "joao@email.com",
+      "senha": "11111",
+      "id": 3
+    },
+    {
+      "nomeUsuario": "victor",
+      "email": "e@e.com",
+      "senha": "12345",
+      "id": 4
+    },
+    {
+      "nomeUsuario": "teste21",
+      "email": "e@r.com",
+      "senha": "123456",
+      "id": 5
     }
   ]
 }

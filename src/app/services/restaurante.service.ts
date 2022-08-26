@@ -20,18 +20,14 @@ constructor(
   }
 
   removerRestaurantes(param: any){
-    return  this.http.delete(`${environment.baseUrl}v2/restaurantes/${param.id}/`,).toPromise().then(res =>{{return res}}).catch(() =>{
-      alert('Erro ao remover ')
-    } )
+    return  this.http.delete(`${environment.baseUrl}v2/restaurantes/${param.id}/`,).toPromise().then(res =>{{return res}} )
   }
 
   getRestauranteID(param: any){
-    return  this.http.get(`${environment.baseUrl}v2/restaurantes/${param.id}/`,).toPromise().then(res =>{{return res}}).catch(() =>{
-    } )
+    return  this.http.get(`${environment.baseUrl}v2/restaurantes/${param.id}/`,).toPromise().then(res =>{{return res}})
   }
 
-  editarRestaurante(param: any){
-    
+  editarRestaurante(param: any){  
     return  this.http.put(`${environment.baseUrl}v2/restaurantes/${param.id}/`, {nome: param.nome}).toPromise().then(res =>{{return res}})
   }
 
